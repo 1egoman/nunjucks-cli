@@ -59,7 +59,7 @@ opts.nunjucks = (argv.options) ? JSON.parse(fs.readFileSync(argv.options, 'utf8'
 var env = nunjucks.configure(path.resolve(process.cwd(), opts.dirIn), opts.nunjucks)
 
 // Parse second argument as data context if any
-opts.context = (argv._[1]) ? JSON.parse(fs.readFileSync(argv._[1], 'utf8')) : {}
+opts.context = (argv._[1]) ? require(path.join('..', '..', argv._[1])) : {}
 
 // Set glob options
 opts.glob = { 
